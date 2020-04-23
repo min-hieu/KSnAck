@@ -1,0 +1,7 @@
+{
+    "python.pythonPath": "C:\\Users\\hieut\\AppData\\Local\\Programs\\Python\\Python37\\python.exe",
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true,
+    "python.linting.flake8Enabled": false,
+    "git.ignoreLimitWarning": true
+}
