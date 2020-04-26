@@ -1,13 +1,13 @@
 from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
+from users.models import Student
 from django import forms
 
 
-class CreateUserForm(UserCreationForm):
+class CreateStudentForm(UserCreationForm):
 
-    student_id = forms.CharField(max_length=6,min_length=6, required=True)
+    student_id = forms.CharField(max_length=6,min_length=6, required=True, help_text='Required. Add a valid student id')
 
     class Meta:
-        model = User
+        model = Student
         fields = ['username','student_id','password1','password2']

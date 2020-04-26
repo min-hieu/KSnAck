@@ -11,18 +11,32 @@ class MyStudentManager(BaseUserManager):
 
         student = self.model(
             username = username,
-            student_id = student_id
+            student_id = student_id,
         )
 
         student.set_password(password)
         student.save(using=self._db)
         return student
 
+    def create_superuser(self, username, student_id, password):
+        student = self.create_user(
+            username = username,
+            student_id = student_id,
+            password=password,
+        )
+
+        student.is_admin = True
+        student.is_staff = True
+        student.is_superuser = True
+        student.save(using=self._db)
+        return student
 
 
 class Student(AbstractBaseUser):
     username                = models.CharField(max_length=100, unique=True)
-    student_id              = models.CharField(max_length=6, min_length=6)
+    student_id              = models.CharField(max_length=6, unique=True)
+    rank                    = models.CharField(max_length=100, default='Second Lieutenant')
+    happiness               = models.IntegerField(default=0)
 
     date_joined             = models.DateTimeField(verbose_name='date joined', auto_now_add=True)
     last_login              = models.DateTimeField(verbose_name='last login', auto_now=True)
@@ -34,13 +48,15 @@ class Student(AbstractBaseUser):
     USERNAME_FIELD = 'student_id'
     REQUIRED_FIELDS = ['username',]
 
+    objects = MyStudentManager()
+
     def __str__(self):
         return self.student_id
 
     def has_perm(self, perm, obj=None):
         return self.is_admin
 
-    def has_modulo_perms(self, app_label):
+    def has_module_perms(self, app_label):
         return True
 
 
