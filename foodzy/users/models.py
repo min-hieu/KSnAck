@@ -37,6 +37,7 @@ class Student(AbstractBaseUser):
     student_id              = models.CharField(max_length=6, unique=True)
     rank                    = models.CharField(max_length=100, default='Second Lieutenant')
     happiness               = models.IntegerField(default=0)
+    medals                  = models.TextField(default='')
 
     date_joined             = models.DateTimeField(verbose_name='date joined', auto_now_add=True)
     last_login              = models.DateTimeField(verbose_name='last login', auto_now=True)

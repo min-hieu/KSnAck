@@ -1,3 +1,11 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
 
-<h1>Hello World, This is Hieu</h1>
+{% block content %}
+    <h1 id='content-text'>
+        Welcome back{% if user.is_authenticated %}, {{user.username}}!
+        {% else %} Guest!
+        {% endif %}
+    </h1>
+
+    {% include 'ranking.html' %}
+{% endblock %}

@@ -1,0 +1,12 @@
+<nav>
+    <ul class="nav__links">
+        <li><a href="{% url 'me' %}">me</a></li>
+        <li><a href="{% url 'home' %}">home</a></li>
+        <li><a href="#">services</a></li>
+    </ul>
+</nav>
+{% if user.is_authenticated %}
+<a class="cta" href="{% url 'logout' %}"><button>logout</button></a>
+{% else %}
+<a class="cta" href="{% url 'login' %}"><button>login</button></a>
+{% endif %}

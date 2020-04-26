@@ -37,11 +37,20 @@ def loginPage(request):
         
         if student is not None:
             login(request, student)
-            return redirect('home')
+            return redirect('/')
 
-    centext = {}
+    context = {}
     return render(request, 'accounts/login.html', context)
 
 def userHome(request):
     context = {}
     return render(request, 'accounts/dashboard.html', context)
+
+
+def logoutPage(request):
+    logout(request)
+    return redirect('/')
+
+def myProfilePage(request):
+    context = {}
+    return render(request, 'accounts/my_profile.html', context)

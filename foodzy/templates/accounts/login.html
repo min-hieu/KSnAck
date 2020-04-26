@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html>
-    
+
+{% if not user.is_authenticated %}
 <head>
 	<title>Login</title>
 	<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
+	<p>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</p>
 
 	<style>
 		body,
@@ -168,3 +173,28 @@
 </body>
 
 </html>
+{% else %}
+<head>
+	<title>Login</title>
+	<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
+	<style>
+		#content {
+			color:rgb(255, 0, 0);
+			padding-top: 50px;
+			font-family: 'Amatic SC', cursive;
+			text-align: center;
+		}
+	</style>
+
+</head>
+<body>
+	<h1 id='content'>
+		you are have been logined :)<br/>
+		Please go back to <a href="{% url 'home' %}">home</a>
+	</h1>
+</body>
+{% endif %}
