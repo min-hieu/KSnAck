@@ -43,6 +43,15 @@
 			color: rgb(255, 0, 0);
 		}
 
+		#messages {
+			font-family: 'Amatic SC', cursive;
+            font-size: 20px;
+			text-align: center;
+			padding-top: 20px;
+			padding-bottom: 0px;
+			color: rgb(30, 255, 0);
+		}
+
         #already {
             font-family: 'Quicksand', sans-serif;
         }
@@ -127,7 +136,7 @@
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
 							</div>
-							<input type="text" name="username" placeholder="Username..." class="form-control">
+							<input type="text" name="student_id" placeholder="student id..." class="form-control">
 						</div>
 						<div class="input-group mb-2">
 							<div class="input-group-append">
@@ -142,7 +151,11 @@
 					</form>
 
 				</div>
-		
+				
+				{% for message in messages %}
+					<p id='messages'>{{message}}</p>
+				{% endfor %}
+
 				<div class="mt-4">
 					<div class="d-flex justify-content-center links" id="already">
 						Don't have an account? <a href="{% url 'register' %}" class="ml-2">Sign Up</a>

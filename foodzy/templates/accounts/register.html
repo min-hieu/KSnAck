@@ -43,6 +43,14 @@
 			color: rgb(255, 0, 0);
 		}
 
+		#error-messages{
+			font-family: 'Amatic SC', cursive;
+			font-size: 20px;
+			padding-top: 1pc;
+			color:#ff3c00;
+			text-align: center;
+		}
+
         #already {
             font-family: 'Quicksand', sans-serif;
         }
@@ -119,32 +127,31 @@
 					<h3 id="form-title">REGISTER ACCOUNT</h3>
 				</div>
 				<div class="d-flex justify-content-center form_container">
-
 					<form method="POST" action="">
 						{% csrf_token %}
 						<div class="input-group mb-3">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
 							</div>
-							{{form.username}}
+							{{registration_form.username}}
 						</div>
 						<div class="input-group mb-2">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="far fa-address-card"></i></span>
 							</div>
-							{{form.student_id}}
+							{{registration_form.student_id}}
 						</div>
 						<div class="input-group mb-2">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-key"></i></span>
 							</div>
-							{{form.password1}}
+							{{registration_form.password1}}
 						</div>
 						<div class="input-group mb-2">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-key"></i></span>
 							</div>
-							{{form.password2}}
+							{{registration_form.password2}}
 						</div>
 
 				   		<div class="d-flex justify-content-center mt-3 login_container">
@@ -152,7 +159,11 @@
 				   		</div>
 					</form>
 				</div>
-		
+				
+				{% for error in registration_form.errors %}
+					<p id='error-messages'>{{error}}</p>
+				{% endfor %}
+
 				<div class="mt-4">
 					<div class="d-flex justify-content-center links" id='already'>
 						Already have an account? <a href="{% url 'login' %}" class="ml-2">Login</a>
@@ -168,8 +179,8 @@
 
 		//Query All input fields
 		var form_fields = document.getElementsByTagName('input')
-		form_fields[1].placeholder='Username.. ex) hieuisawesome';
-		form_fields[2].placeholder='ID... ex) 18206';
+		form_fields[1].placeholder='Username.. ';
+		form_fields[2].placeholder='ID... ex) 18-206';
 		form_fields[3].placeholder='Enter password...';
 		form_fields[4].placeholder='Re-enter Password...';
 
@@ -181,9 +192,3 @@
 </body>
 </html>
 
-<form method="POST" action="">
-	{% csrf_token %}
-	{{form.as_p}}
-
-	<input type="submit" name="Create User">
-</form>
