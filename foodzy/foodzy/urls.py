@@ -15,9 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.contrib.auth import views as auth_views
 from pages.views import home_view
-from users.views import registerPage,loginPage,userHome,logoutPage,myProfilePage
+from users.views import (
+    registerPage,
+    loginPage,
+    userHome,
+    logoutPage,
+    dynamicProfileLookup,
+    dynamicHistoryLookup,
+    )
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,5 +32,6 @@ urlpatterns = [
     path('register/', registerPage, name='register'),
     path('login/', loginPage, name='login'),
     path('logout/', logoutPage, name='logout'),
-    path('me/', myProfilePage, name='me')
+    path('profiles/<slug:stuid>/', dynamicProfileLookup, name='profile'),
+    path('profiles/<slug:stuid>/history', dynamicHistoryLookup, name='my_history'),
 ]

@@ -11,6 +11,8 @@ class transaction(models.Model):
 
     status = models.IntegerField(default=3,choices=Status.choices)
     food_id             = models.UUIDField(default=uuid1)
+    date_create         = models.DateTimeField(verbose_name='date created', auto_now_add=True)
+    date_update         = models.DateTimeField(verbose_name='date update', auto_now=True)
     category            = models.CharField(blank=False,null=False,default='general',max_length=200)
     tags                = models.TextField(blank=True,null=True)
     donor               = models.CharField(max_length=100,null=False)

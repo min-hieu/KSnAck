@@ -7,15 +7,15 @@
     <h1 style="font-family: 'Amatic SC', cursive;font-size: 30px;">안녕 <span style='color:rgb(255, 47, 47)'>{{user.username}}</span></h1>
     <table id='profile-table'>
         <td>id: </th>
-        <td style="margin-left: 5px;"> {{user.student_id}}</th>
+        <td style="margin-left: 5px;"> {{student.student_id}}</th>
         </tr>
         <tr>
         <td>rank: </td>
-        <td style="margin-left: 5px;"> {{user.rank}}</td>
+        <td style="margin-left: 5px;"> {{student.rank}}</td>
         </tr>
         <tr>
         <td>happiness: </td>
-        <td style="margin-left: 5px;"> {{user.happiness}}</td>
+        <td style="margin-left: 5px;"> {{student.happiness}}</td>
         </tr>
     </table>
 <div>
@@ -24,7 +24,7 @@
 
 
 {% else %}
-<h1 id='content-text'> Please Login <a href='{% url login %}'></a> </h1>
+<h1 id='content-text'> Please Login <a href="{% url 'login' %}" id='content-text'>Here</a> </h1>
 
 {% endif %}
 {% endblock %}

@@ -77,7 +77,9 @@
             font-family: 'Quicksand', sans-serif;
             font-size: 12px;
             padding-top: 50px;
+            padding-bottom: 0;
             text-align: center;
+            margin-bottom: auto;
         }
 
         #content-text {
@@ -89,18 +91,45 @@
         }
 
         #profile {
-            margin: 0px 50px;
+            text-align: center;    
+        }
+
+        #profile td {
+            padding: 5px 0;
+            margin: 0 50px;
         }
 
         table {
             border-collapse: separate;
             border-spacing: 10px 0;
             font-family: 'Quicksand', sans-serif;
+            margin-left: auto;
+            margin-right: auto;
             }
+        
+        hr {
+            color: red
+        }
 
-        td {
-            padding: 5px 0;
-            }
+        .tran-details {
+            border-color: #ff2323;
+            border-style: solid;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            padding: 20px 0px;
+            max-width: 200px;
+            text-align: center ;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .tran-details a{
+            font-family: 'Amatic SC', cursive;
+            font-size: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+        }
 
 
     </style>
@@ -109,6 +138,7 @@
 <body>
 <header>
 {% include 'navbar.html' %}
+
 </header>
 {% block content %}
 {% endblock %}
