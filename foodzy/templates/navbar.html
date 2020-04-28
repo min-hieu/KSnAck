@@ -5,7 +5,7 @@
         {% if user.is_authenticated %}
         <li><a href="/profiles/{{ user.student_id }}">me</a></li>
         <li><a href="/dashboard">dashboard</a></li>
-        <li><a href="/queue">queueing</a></li>
+        <li><a href="{% url 'queue' %}">queueing</a></li>
         {% else %}{% endif %}
     </ul>
 </nav>

@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from pages.views import home_view
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from pages.views import home_view, queue_view
 from users.views import (
     registerPage,
     loginPage,
@@ -34,4 +35,7 @@ urlpatterns = [
     path('logout/', logoutPage, name='logout'),
     path('profiles/<slug:stuid>/', dynamicProfileLookup, name='profile'),
     path('profiles/<slug:stuid>/history', dynamicHistoryLookup, name='my_history'),
+    path('queue/', queue_view, name='queue'),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
