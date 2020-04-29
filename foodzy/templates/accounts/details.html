@@ -4,22 +4,26 @@
 {% if user.is_authenticated %}
 
 <div id='profile'>
-    <h1 style="font-family: 'Amatic SC', cursive;font-size: 30px;">안녕 <span style='color:rgb(255, 47, 47)'>{{user.username}}</span></h1>
-    <table id='profile-table'>
-        <td>id: </th>
-        <td style="margin-left: 5px;"> {{student.student_id}}</th>
-        </tr>
-        <tr>
-        <td>rank: </td>
-        <td style="margin-left: 5px;"> {{student.rank}}</td>
-        </tr>
-        <tr>
-        <td>happiness: </td>
-        <td style="margin-left: 5px;"> {{student.happiness}}</td>
-        </tr>
-    </table>
-<div>
+    <img src="/static/profile-picture/{% if user.rank == 'God' %}god.png{% else %}normal.png{% endif %}" style="width:200px">
+    <div id='profile-child'>
+        <h1 style="font-family: 'Amatic SC', cursive;font-size: 40px;text-align: center;margin-bottom: 10px;">this is <span style='color:rgb(255, 47, 47)'>{{user.username}}</span></h1>
+        <table id='profile-table'>
+            <td>id: </th>
+            <td style="padding-left: 10px;"> {{student.student_id}}</th>
+            </tr>
+            <tr>
+            <td>rank: </td>
+            <td style="padding-left: 10px;"> {{student.rank}}</td>
+            </tr>
+            <tr>
+            <td>happiness: </td>
+            <td style="padding-left: 10px;color:red"> {{student.happiness}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
 
+{% include 'items/history-details.html' %}
 
 
 

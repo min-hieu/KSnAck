@@ -16,5 +16,5 @@ class transaction(models.Model):
     category            = models.CharField(blank=False,null=False,default='general',max_length=200)
     tags                = models.TextField(blank=True,null=True)
     donor               = models.CharField(max_length=100,null=False)
-    recipient           = models.CharField(max_length=100,null=False)
+    recipient           = models.CharField(max_length=100,null=False, default='None :(')
     details             = models.TextField(blank=True,null=True)

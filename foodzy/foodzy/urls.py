@@ -20,11 +20,11 @@ from pages.views import home_view, queue_view
 from users.views import (
     registerPage,
     loginPage,
-    userHome,
     logoutPage,
     dynamicProfileLookup,
     dynamicHistoryLookup,
     )
+from items.views import dynamicItemView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -36,6 +36,7 @@ urlpatterns = [
     path('profiles/<slug:stuid>/', dynamicProfileLookup, name='profile'),
     path('profiles/<slug:stuid>/history', dynamicHistoryLookup, name='my_history'),
     path('queue/', queue_view, name='queue'),
+    path('items/<slug:proid>/', dynamicItemView, name='item')
 ]
 
 urlpatterns += staticfiles_urlpatterns()

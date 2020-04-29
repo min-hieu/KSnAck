@@ -9,5 +9,5 @@ def queue_view(request):
     context = {
         'trans' : transactions,
     }
-    return render(request, 'items/queue.html', context)
+    return render(request, 'pages/queue.html', context)
     

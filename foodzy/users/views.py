@@ -43,10 +43,6 @@ def loginPage(request):
     context = {}
     return render(request, 'accounts/login.html', context)
 
-def userHome(request):
-    context = {}
-    return render(request, 'accounts/dashboard.html', context)
-
 
 def logoutPage(request):
     logout(request)
@@ -55,16 +51,22 @@ def logoutPage(request):
 
 def dynamicProfileLookup(request, stuid):
     student = Student.objects.get(student_id=stuid)
+    trans_don = transaction.objects.filter(donor=stuid)
+    trans_rep = transaction.objects.filter(recipient=stuid)
     context = {
-        "student" : student
+        "student" : student,
+        "transdon" : trans_don,
+        "transrep" : trans_rep,
     }
     return render(request, "accounts/details.html", context)
 
 def dynamicHistoryLookup(request, stuid):
-    transactions = transaction.objects.filter(donor=stuid)
+    trans_don = transaction.objects.filter(donor=stuid)
+    trans_rep = transaction.objects.filter(recipient=stuid)
     context = {
-        "trans" : transactions
+        "transdon" : trans_don,
+        "transrep" : trans_rep,
     }
-    return render(request, "items/history.html", context)
+    return render(request, "pages/history.html", context)
     
 

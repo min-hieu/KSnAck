@@ -1,0 +1,24 @@
+
+<p id="history-header">donation history</p>
+<div id="history-container">
+    {% if transdon|length > 0 %}
+        {% for tran in transdon %}
+            {% include 'items/preview.html' %}
+        {% endfor %}
+    {% else %}
+        <h1 id='content-text'>No donation here :(</h1>
+    {% endif  %}
+    
+</div>
+
+<p  id="history-header">recieving history</p>
+<div id="history-container">    
+    {% if transrep|length > 0 %}
+        {% for tran in transrep %}
+            {% include 'items/preview.html' %}
+        {% endfor %}
+    {% else %}
+        <h1 id='content-text'>No data!</h1>
+    {% endif %}
+</div>
+
