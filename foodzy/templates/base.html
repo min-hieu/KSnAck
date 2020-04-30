@@ -30,7 +30,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 10%;
+            padding: 0px 10% 20px 10%;
         }
 
         .nav__links {
@@ -50,6 +50,45 @@
         .nav__links li a:hover {
             color: rgb(56, 0, 0);
         }
+
+        nav {
+            margin: 0;
+        }
+
+        .toggle {
+            width: 100%;
+            padding: 10px 0;
+            box-sizing: border-box;
+            color: red;
+            font-size: 20px;
+            display: none;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+        @media (max-width: 600px) {
+            nav {
+            margin: 0;
+            padding-top: 17px;
+            }
+            .toggle {
+                display: block;
+            }
+            .nav__links ul {
+                width: 100%;
+                margin-left:auto;
+                margin-right: auto;
+            }
+            .nav__links li {
+                display: block;
+                padding: 0px 10px;
+                text-align: left;
+                display: none;
+            }
+            .nav__links .active {
+                display: block;
+            }
+        } 
 
         button {
             font-family: 'Amatic SC', cursive;
@@ -75,7 +114,7 @@
             background-color: rgb(255, 255, 255);
             color: #ff2323;
             font-family: 'Quicksand', sans-serif;
-            font-size: 12px;
+            font-size: max(1vw,10px);
             text-align: center;
             position:relative;
             top: 20px;
@@ -224,6 +263,14 @@
         .tran-preview a {
             text-align: center;
             margin: 0px auto 0px auto;
+            font-size: 20px;
+        }
+
+        .tran-preview p {
+            font-family: 'Quicksand', sans-serif;
+            text-align: center;
+            margin: 10px auto 0px auto;
+            font-size: 10px;
         }
 
         .tran-preview table {
@@ -247,5 +294,5 @@
 
 </body>
 <footer>
-    <p id='footer-text'>COPYRIGHT @ DS2020 PROJECT by 18-206 Hieu & 18-078 유제인</p>
+    <p id='footer-text'>Data Structure 2020 Project by 18-206 Hieu & 18-078 유제인</p>
 </footer>

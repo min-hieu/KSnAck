@@ -4,7 +4,7 @@ from .models import transaction
 def dynamicItemView(request, proid):
     obj = transaction.objects.get(food_id=proid)
     context = {
-        "object": obj,
+        "transaction": obj,
     }
     return render(request, "items/details.html", context)
 

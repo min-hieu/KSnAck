@@ -18,3 +18,4 @@ class transaction(models.Model):
     donor               = models.CharField(max_length=100,null=False)
     recipient           = models.CharField(max_length=100,null=False, default='None :(')
     details             = models.TextField(blank=True,null=True)
+    title               = models.CharField(default='Help!',max_length=60,null=True)

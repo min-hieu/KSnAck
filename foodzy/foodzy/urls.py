@@ -27,7 +27,7 @@ from users.views import (
 from items.views import dynamicItemView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls, name='admin_page'),
 
     path('', home_view, name='home'),
     path('register/', registerPage, name='register'),

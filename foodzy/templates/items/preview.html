@@ -1,5 +1,5 @@
 <div class='tran-preview'>
-    <a href="{% url 'item' tran.food_id %}">{{tran.date_create}}</a>
+    <a href="{% url 'item' tran.food_id %}">{{tran.title}}</a>
     <table>
         <tr>
             <td>Donor:</td>
@@ -14,4 +14,5 @@
             <td style="text-align: center;">{{tran.get_status_display}}</td>
         </tr>
     </table>
+    <p>{{tran.date_create}}</p>
 </div>

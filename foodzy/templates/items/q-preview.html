@@ -1,6 +1,6 @@
 <div class='q-preview'>
     <div class='q-pr-table'>
-    <a href='home/'>{{tran.date_create}}</a>
+    <a href="{% url 'item' tran.food_id %}">{{tran.date_create}}</a>
     <table>
         <tr>
             <td>Donor:</td>
