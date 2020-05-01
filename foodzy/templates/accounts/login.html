@@ -158,7 +158,9 @@
 				</div>
 				
 				{% for message in messages %}
-					<p id='messages'>{{message}}</p>
+					{% for error in message %}
+					<p id='messages'>{{error}}</p>
+					{% endfor %}
 				{% endfor %}
 
 				<div class="mt-4">

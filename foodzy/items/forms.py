@@ -1,5 +1,8 @@
 from djnago import forms
+from .models import transaction
 
-from .models import Product
+class foodQueueForm(forms.Form):
+    title = forms.CharField(default='Help!', max_length=60, )
 
-class foodForm(forms.Model)
+class foodOfferForm(forms.Form):
+    pass

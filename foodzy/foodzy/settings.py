@@ -25,7 +25,7 @@ SECRET_KEY = ')g$dhw1e0dg2&836)i57v+09v9q!6lovcta_*!(6n)@erslwtk'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["ksahappy.com"]
+ALLOWED_HOSTS = ["ksahappy.com","127.0.0.1","www.ksahappy.com"]
 
 
 # Application definition

@@ -52,7 +52,7 @@
 			font-size: 20px;
 			padding-top: 1pc;
 			color:#ff3c00;
-			text-align: center;
+			text-align: left;
 		}
 
         #already {
@@ -164,9 +164,11 @@
 					</form>
 				</div>
 				
-				{% for error in registration_form.errors %}
+				<!-- {% for error in registration_form.errors %}
 					<p id='error-messages'>{{error}}</p>
-				{% endfor %}
+				{% endfor %} -->
+
+				<div id='error-messages'>{{ registration_form.errors }}</div>
 
 				<div class="mt-4">
 					<div class="d-flex justify-content-center links" id='already'>
