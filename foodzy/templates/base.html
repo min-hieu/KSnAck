@@ -66,34 +66,6 @@
             margin-bottom: auto;
         }
 
-        @media (max-width: 600px) {
-            nav {
-            margin: 0;
-            padding-top: 17px;
-            }
-            .toggle {
-                display: block;
-            }
-            .nav__links ul {
-                width: 100%;
-                margin-left:auto;
-                margin-right: auto;
-            }
-            .nav__links li {
-                display: block;
-                padding: 0px 10px;
-                text-align: left;
-                display: none;
-            }
-            .nav__links .active {
-                display: block;
-            }
-            #history-container {
-                width: 10vw;
-            }
-
-        } 
-
         button {
             font-family: 'Amatic SC', cursive;
             font-weight: 500;
@@ -284,6 +256,80 @@
             margin-left: auto;
             margin-right: auto;
         }
+        
+        .fa-plus-circle {
+            color:white;
+            background-color: transparent;
+        }
+
+        button:hover .fa-plus-circle{
+            color:red; 
+        }
+
+        .add-q{
+            display: flex;
+            justify-content: flex-end
+        }
+
+        .queue-page {
+            max-width: 1000px;
+            margin: 0 auto 0 auto;
+            display: flex-block;
+        }
+
+        .q-form input{
+            display: none;
+        }
+
+        .q-form textarea {
+            display: none;
+        }
+
+        .q-form .active{
+            display: block;
+        }
+
+        .all-happy-img {
+            width: 400px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 15px;
+            margin-bottom: 300px;
+        }
+
+        @media (max-width: 600px) {
+            nav {
+            margin: 0;
+            padding-top: 17px;
+            }
+            .toggle {
+                display: block;
+            }
+            .nav__links ul {
+                width: 100%;
+                margin-left:auto;
+                margin-right: auto;
+            }
+            .nav__links li {
+                display: block;
+                padding: 0px 10px;
+                text-align: left;
+                display: none;
+            }
+            .nav__links .active {
+                display: block;
+            }
+            #history-container {
+                width: 10vw;
+            }
+            .queue-page {
+                margin: 0 10% 0 10%;
+            }
+            .all-happy-img {
+            width: 200px;
+            }
+        } 
 
     </style>
 </head>

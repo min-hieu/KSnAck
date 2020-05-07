@@ -1,0 +1,16 @@
+<div class="d-flex justify-content-center form_container">
+    <form method="POST" action="" class='q-form'>   
+        {% csrf_token %}
+        <div class="input-group mb-3">
+            {{queue_form.title}}
+        </div>
+        
+        {{queue_form.author}}
+        {{queue_form.recipient}}
+        {{queue_form.details}}
+        {{queue_form.want}}
+        {{queue_form.give}}
+        {{queue_form.details}}
+        {{queue_form.tags}}
+    </form>
+</div>

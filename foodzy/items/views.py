@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import transaction
+from items.models import transaction
 
 def dynamicItemView(request, proid):
     obj = transaction.objects.get(food_id=proid)

@@ -1,8 +1,19 @@
-from djnago import forms
+from django.forms import ModelForm
 from .models import transaction
 
-class foodQueueForm(forms.Form):
-    title = forms.CharField(default='Help!', max_length=60, )
+class foodQueueForm(ModelForm):
+    class Meta:       
+        model = transaction
+        fields = [
+            'title',
+            'author',
+            'recipient',
+            'details',
+            'want',
+            'give',
+            'details',
+            'tags'
+        ]
 
-class foodOfferForm(forms.Form):
+class foodOfferForm(ModelForm):
     pass
