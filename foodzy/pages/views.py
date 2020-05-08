@@ -2,9 +2,15 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from items.models import transaction
 from items.forms import foodOfferForm, foodQueueForm
+from users.models import Student
 
 def home_view(request):
-    return render(request, 'home.html', {})
+    rankings = Student.objects.order_by('-happiness', 'student_id')[:10]
+    context = {
+            'rankings' : rankings,
+            }
+
+    return render(request, 'home.html', context)
 
 def queue_view(request):
     transactions = transaction.objects.filter(status=3)

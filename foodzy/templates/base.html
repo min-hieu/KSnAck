@@ -85,6 +85,26 @@
             color:#ff2323;
         }
 
+        .submit-button {
+            font-family: 'Amatic SC', cursive;
+            font-weight: 500;
+            font-size: 16px;
+            color: #ffffff;
+            
+            padding: 7px 21px;
+            background-color: #ff2323;
+            border:none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease 0s;
+            margin:10px auto 0 auto;
+        }
+
+        .submit-button:hover{
+            background-color: aliceblue;
+            color:#ff2323;
+        }
+
         
         #footer-text {
             background-color: rgb(255, 255, 255);
@@ -298,6 +318,21 @@
             margin-bottom: 300px;
         }
 
+        #ranking {
+            max-width: 600;
+            margin: 0 auto 0 auto;
+        }
+
+        #ranking-header {
+            text-align: center;
+            margin-bottom: 30px;
+            margin-top: 30px;
+        }
+
+        .fa-crown {
+            color:rgb(255, 112, 112);
+        }
+
         @media (max-width: 600px) {
             nav {
             margin: 0;
@@ -329,6 +364,10 @@
             .all-happy-img {
             width: 200px;
             }
+            #ranking {
+                max-width: 600;
+                margin: 0 10% 0 10%;
+            }
         } 
 
     </style>
@@ -340,7 +379,6 @@
 </header>
 {% block content %}
 {% endblock %}
-
 
 </body>
 <footer>

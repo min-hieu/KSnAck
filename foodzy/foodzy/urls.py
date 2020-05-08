@@ -36,7 +36,7 @@ urlpatterns = [
     path('profiles/<slug:stuid>/', dynamicProfileLookup, name='profile'),
     path('profiles/<slug:stuid>/history', dynamicHistoryLookup, name='my_history'),
     path('queue/', queue_view, name='queue'),
-    path('items/<slug:proid>/', dynamicItemView, name='item')
+    path('items/<slug:proid>/', dynamicItemView, name='item'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

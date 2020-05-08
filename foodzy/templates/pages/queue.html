@@ -2,14 +2,14 @@
 
 {% block content %}
 
-
-
 <div class='queue-page'>
 
     <div class='add-q'>
     <button class='button-add-q'><i class="fas fa-plus-circle"></i> Request</button>
     </div>
+    <br>
     {% include 'items/q-form.html' %}
+    <br>
     {% if trans|length > 0 %}
     {% for tran in trans %}
     

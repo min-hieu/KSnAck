@@ -4,13 +4,29 @@
         <div class="input-group mb-3">
             {{queue_form.title}}
         </div>
-        
         {{queue_form.author}}
         {{queue_form.recipient}}
         {{queue_form.details}}
         {{queue_form.want}}
         {{queue_form.give}}
-        {{queue_form.details}}
         {{queue_form.tags}}
+
+        <input class='submit-button'type="submit" value='Post' name='Create User'>
     </form>
 </div>
+
+<script>
+    //Query All input fields
+    var form_fields = document.getElementsByTagName('input')
+    form_fields[1].placeholder='title';
+    form_fields[2].placeholder='recipient';
+    form_fields[3].placeholder='details...';
+    form_fields[4].placeholder='want';
+    form_fields[5].placeholder='give';
+    form_fields[6].placeholder='tags';
+
+
+    for (var field in form_fields){	
+        form_fields[field].className += ' form-control'
+    }
+</script>
