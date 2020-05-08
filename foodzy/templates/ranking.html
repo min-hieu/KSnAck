@@ -2,27 +2,3 @@
     <h1>Happiness Ranking<h1>
 
 <div>
-<head>
-</head>
-<body>
-  <div id = "content">
-    <table id = "ranking-table" class = "table">
-      <thead>
-        <tr>
-          <th>rank</th>
-          <th>username</th>
-          <th>happiness</th>
-        </tr>
-      </thead>
-      <tbody id = "ranking-list">
-        {% for student in rankings %}
-        <tr>
-          <td>{{forloop.counter}}</td>
-          <td>{{student.username}}</td>
-          <td>{{student.happiness}}</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-  </div>
-</body>
