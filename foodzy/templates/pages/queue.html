@@ -10,14 +10,17 @@
     <br>
     {% include 'items/q-form.html' %}
     <br>
-    {% if trans|length > 0 %}
-    {% for tran in trans %}
-    
-        {% include 'items/q-preview.html' %}
 
-    {% endfor %}
+
+    {% if trans|length > 0 %}
+    <p id="history-header">Help requests</p>
+    <div id="q-container">
+        {% for tran in trans %}
+        {% include 'items/q-preview.html' %}
+        {% endfor %}    
+    </div>
     {% else %}
-    <h1 id='content-text'> Queue is empty </h1>
+    <h1 id='content-text'> Queue is empty </h1><br>
     <img src='/static/all_happy.png' alt='all happy' class='all-happy-img'>
     {%endif%}
 
@@ -28,8 +31,34 @@
     $(document).ready(function(){
         $('.button-add-q').click(function(){
             $('.q-form input').toggleClass('active');
+            $('.q-form label').toggleClass('active');
         })
     })
 </script>
 
+<style>
+    #q-container {
+        border-color: #bebebe;
+        border-style: solid;
+        border-width: 2px;
+        max-width: 800px;
+        min-width: 300px;
+        margin: 20px auto 30px auto;
+        padding: 5px;
+        display: grid;
+        grid-gap: 5px;
+        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+        
+    }
+    
+    #q-container table {
+        border-collapse: separate;
+        border-spacing: 0px 0;
+        font-family: 'Quicksand', sans-serif;
+        min-width: 100px;
+    }
+    </style>
+
 {% endblock %}
+
+

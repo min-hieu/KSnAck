@@ -1,25 +1,79 @@
 <div class='q-preview'>
-    <div class='q-pr-table'>
-    <a href="{% url 'item' tran.food_id %}">{{tran.date_create}}</a>
+    <a href="{% url 'item' tran.food_id %}">{{tran.title}}</a>
     <table>
-        <tr>
-            <td>Donor:</td>
-            <td>{{tran.donor}}</td>
-        </tr>
         <tr>
             <td>Recipient:</td>
             <td>{{tran.recipient}}</td>
         </tr>
+        {% if tran.give|length > 0 %}
         <tr>
-            <td>details</td>
-            <td>{{tran.get_status_display}}</td>
+            <td>want</td>
+            <td>{{tran.want}}</td>
+        </tr>
+        {% else %}{% endif %}
+        {% if tran.give|length > 0 %}
+        <tr>
+            <td>for</td>
+            <td>{{tran.give }}</td>
+        </tr>
+        {% else %}{% endif %}
+        <tr>
+            <td>status</td>
+            <td>{{tran.status}}</td>
         </tr>
     </table>
-    </div>
     <div class='q-pr-button'>
-        <button>Lent</button>
-        <button>Trade</button>
+        <form action="{% url 'queue_ac' tran.pk %}" method=POST>
+            {% csrf_token %}
+
+            <button class='q-button' type="submit">Accept</button>
+        </form>
     </div>
-
-
 </div>
+
+<style>
+    .q-preview {
+    border-color: #ff2323;
+    border-style: solid;
+    border-radius: 15px;
+    margin: 20px auto 30px auto; 
+    padding: 15px 0px;
+    min-width: 150px;
+    text-align: center ;
+    }
+
+    .q-preview a{
+    font-family: 'Amatic SC', cursive;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    }
+
+    .q-preview table {
+    margin-left: auto;
+    margin-right: auto;
+    }
+
+    .q-button {
+    font-family: 'Amatic SC', cursive;
+    font-weight: 500;
+    font-size: 16px;
+    color: #ffffff;
+    
+    padding: 7px 21px;
+    margin-top: 10px;
+    background-color: #ff2323;
+    border:none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    }
+
+    .q-button:hover {
+    background-color: aliceblue;
+    color:#ff2323;
+    }
+
+
+</style>

@@ -27,7 +27,7 @@ class transaction(models.Model):
     give                = models.CharField(max_length=100,null=False)
     want                = models.CharField(max_length=100,null=False, default=None)
     method              = models.IntegerField(default=0,choices=Methods.choices)
-    author              = models.CharField(max_length=100, blank=False)
+    author              = models.CharField(max_length=100, null=False)
 
     def __str__(self):
         return '%s for %s' % (self.title, self.author)

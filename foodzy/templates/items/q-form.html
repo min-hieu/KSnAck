@@ -1,9 +1,10 @@
 <div class="d-flex justify-content-center form_container">
     <form method="POST" action="" class='q-form'>   
         {% csrf_token %}
-        <div class="input-group mb-3">
-            {{queue_form.title}}
-        </div>
+        
+        <label for="male">Title</label>
+        {{queue_form.title}}
+        <label for="male">Author</label>
         {{queue_form.author}}
         {{queue_form.recipient}}
         {{queue_form.details}}
@@ -19,14 +20,37 @@
     //Query All input fields
     var form_fields = document.getElementsByTagName('input')
     form_fields[1].placeholder='title';
-    form_fields[2].placeholder='recipient';
-    form_fields[3].placeholder='details...';
-    form_fields[4].placeholder='want';
-    form_fields[5].placeholder='give';
-    form_fields[6].placeholder='tags';
+    form_fields[1].value='Help!';
+    form_fields[2].placeholder='author';
+    form_fields[2].value='{{user.student_id}}';
+    form_fields[3].placeholder='recipient';
+    form_fields[3].value='{{user.student_id}}';
+    form_fields[4].placeholder='details...';
+    form_fields[5].placeholder='want';
+    form_fields[6].placeholder='give';
+    form_fields[7].placeholder='tags';
 
 
     for (var field in form_fields){	
         form_fields[field].className += ' form-control'
     }
 </script>
+
+<style>
+    .q-form input{
+        display: none;
+    }
+
+    .q-form label{
+        display: none;
+        text-align: center;
+    }
+
+    .q-form textarea {
+        display: none;
+    }
+
+    .q-form .active{
+        display: block;
+    }
+</style>
