@@ -32,7 +32,7 @@ def queue_view(request,proid=None):
     elif request.POST and proid:
         current_user = request.user
         tran_ac = transaction.objects.filter(pk=proid)[0]
-        tran_ac.status = 2
+        tran_ac.status = 0
         tran_ac.donor = current_user.student_id
         tran_ac.save()
 

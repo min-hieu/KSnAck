@@ -23,6 +23,7 @@ from users.views import (
     logoutPage,
     dynamicProfileLookup,
     dynamicHistoryLookup,
+    Processing_page,
     )
 from items.views import dynamicItemView
 
@@ -38,6 +39,7 @@ urlpatterns = [
     path('queue/', queue_view, name='queue'),
     path('queue/accept/<slug:proid>', queue_view, name='queue_ac'),
     path('items/<slug:proid>/', dynamicItemView, name='item'),
+    path('processing', Processing_page, name='processing')
 ]
 
 urlpatterns += staticfiles_urlpatterns()
