@@ -7,10 +7,11 @@
     <div class='add-q'>
     <button class='button-add-q'><i class="fas fa-plus-circle"></i> Request</button>
     </div>
-    <br>
     {% include 'items/q-form.html' %}
-    <br>
 
+    {% for message in messages %}
+        <span class='success-m'>{{message}}</span>
+    {% endfor %}
 
     {% if trans|length > 0 %}
     <p id="history-header">Help requests</p>
@@ -32,17 +33,28 @@
         $('.button-add-q').click(function(){
             $('.q-form input').toggleClass('active');
             $('.q-form label').toggleClass('active');
+            $('.q-form textarea').toggleClass('active');
+            $('#id_method').toggleClass('active');
         })
-    })
+    });
+
+    document.getElementById("_1234").checked = true;
+
 </script>
 
 <style>
+
+    .success-m {
+        text-align: center;
+        background-color: #84ff74;
+    }
+
     #q-container {
         border-color: #bebebe;
         border-style: solid;
         border-width: 2px;
         max-width: 800px;
-        min-width: 300px;
+        min-width: 200px;
         margin: 20px auto 30px auto;
         padding: 5px;
         display: grid;
@@ -57,7 +69,9 @@
         font-family: 'Quicksand', sans-serif;
         min-width: 100px;
     }
-    </style>
+
+
+</style>
 
 {% endblock %}
 

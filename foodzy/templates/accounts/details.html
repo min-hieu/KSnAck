@@ -6,7 +6,7 @@
 <div id='profile'>
     <img src="/static/profile-picture/{% if student.rank == 'God' %}god.png{% else %}normal.png{% endif %}" style="width:200px">
     <div id='profile-child'>
-        <h1 style="font-family: 'Amatic SC', cursive;font-size: 40px;text-align: center;margin-bottom: 10px;">this is <span style='color:rgb(255, 47, 47)'>{{student.username}}</span></h1>
+        <h1 style="font-family: 'Amatic SC', cursive,'Single Day', cursive;font-size: 40px;text-align: center;margin-bottom: 10px;">this is <span style='color:rgb(255, 47, 47)'>{{student.username}}</span></h1>
         <table id='profile-table'>
             <td>id: </th>
             <td style="padding-left: 10px;"> {{student.student_id}}</th>

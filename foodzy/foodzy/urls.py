@@ -22,7 +22,6 @@ from users.views import (
     loginPage,
     logoutPage,
     dynamicProfileLookup,
-    dynamicHistoryLookup,
     Processing_page,
     )
 from items.views import dynamicItemView
@@ -35,7 +34,6 @@ urlpatterns = [
     path('login/', loginPage, name='login'),
     path('logout/', logoutPage, name='logout'),
     path('profiles/<slug:stuid>/', dynamicProfileLookup, name='profile'),
-    path('profiles/<slug:stuid>/history', dynamicHistoryLookup, name='my_history'),
     path('queue/', queue_view, name='queue'),
     path('queue/accept/<slug:proid>', queue_view, name='queue_ac'),
     path('items/<slug:proid>/', dynamicItemView, name='item'),

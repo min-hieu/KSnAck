@@ -1,31 +1,38 @@
-<div class='q-preview'>
-    <a href="{% url 'item' tran.pk %}">{{tran.title}}</a>
+<div class='p-preview'>
+    <a href="{% url 'item' tran.id %}">{{tran.title}}</a>
     <table>
         <tr>
-            <td>Author:</td>
+            <td>author</td>
             <td>{{tran.author}}</td>
         </tr>
+        {% if tran.give|length > 0 %}
         <tr>
-            <td>{% if tran.method == 0 %}want{% else %}have{% endif %}</td>
-            <td>{{tran.content}}</td>
+            <td>want</td>
+            <td>{{tran.want}}</td>
         </tr>
-        {% if tran.tags|length > 0 %}
+        {% else %}{% endif %}
+        {% if tran.give|length > 0 %}
         <tr>
-            <td>tag</td>
-            <td>{{tran.tag}}</td>
+            <td>for</td>
+            <td>{{ tran.give }}</td>
         </tr>
-        {%else%}{%endif%}
+        {% else %}{% endif %}
+        <tr>
+            <td>status</td>
+            <td>{{ tran.status}}</td>
+        </tr>
     </table>
-    <div class='q-pr-button'>
+    <div class='p-pr-button'>
         <form action="{% url 'queue_ac' tran.pk %}" method=POST>
             {% csrf_token %}
-            <button class='q-button' type="submit">Apply</button>
+
+            <button class='p-button' type="submit">Accept</button>
         </form>
     </div>
 </div>
 
 <style>
-    .q-preview {
+    .p-preview {
     border-color: #ff2323;
     border-style: solid;
     border-radius: 15px;
@@ -35,7 +42,7 @@
     text-align: center ;
     }
 
-    .q-preview a{
+    .p-preview a{
     font-family: 'Amatic SC', cursive;
     font-size: 20px;
     text-align: center;
@@ -43,12 +50,12 @@
     padding-bottom: 20px;
     }
 
-    .q-preview table {
+    .p-preview table {
     margin-left: auto;
     margin-right: auto;
     }
 
-    .q-button {
+    .p-button {
     font-family: 'Amatic SC', cursive;
     font-weight: 500;
     font-size: 16px;
@@ -63,7 +70,7 @@
     transition: all 0.3s ease 0s;
     }
 
-    .q-button:hover {
+    .p-button:hover {
     background-color: aliceblue;
     color:#ff2323;
     }

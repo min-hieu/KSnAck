@@ -35,7 +35,7 @@ class MyStudentManager(BaseUserManager):
 class Student(AbstractBaseUser):
     username                = models.CharField(max_length=100, unique=True)
     student_id              = models.CharField(max_length=6, unique=True)
-    rank                    = models.CharField(max_length=100, default='Second Lieutenant')
+    rank                    = models.CharField(max_length=100, default='Layman')
     happiness               = models.IntegerField(default=0)
     medals                  = models.TextField(default='')
 

@@ -2,8 +2,60 @@
 
 {% block content %}
 
-<div>
-    <h1>{{transaction.title}}
+<div class='trans-details'>
+    <h1>{{transaction.title}}</h1>
+    <div class='trans-body'>
+        <table>
+        <tbody>
+            <tr>
+                <td> status: </td>
+                <td>{{transaction.status}}</td>
+            </tr>
+            <tr>
+                <td> Created on:  </td>
+                <td>{{transaction.date_create}}</td>
+            </tr>
+            <tr>
+                <td> Last update: </td>
+                <td>{{transaction.date_update}}</td>
+            </tr>
+            <tr>
+                <td> tags </td>
+                <td>{{transaction.tags}}</td>
+            </tr>
+            <tr>
+                <td> Author: </td>
+                <td>{{transaction.author}}</td>
+            </tr>
+            <tr>
+                <td> Accepter: </td>
+                <td>{{transaction.accepter}}</td>
+            </tr>
+            <tr>
+                <td> Content: </td>
+                <td>{{transaction.content}}</td>
+            </tr>
+            <tr>
+                <td> Details: </td>
+                <td>{{transaction.details}}</td>
+            </tr>
+            <tr>
+                <td> Type: </td>
+                <td>{{transaction.method}}</td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
 </div>
+
+
+<style>
+    
+    .trans-details h1 {
+        text-align: center;
+        font-size: min(10vw,50px);
+    }
+
+</style>
 
 {% endblock %}
