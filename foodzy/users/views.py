@@ -51,19 +51,18 @@ def logoutPage(request):
 
 def dynamicProfileLookup(request, stuid):
     student = Student.objects.get(student_id=stuid)
-    trans_don = transaction.objects.filter(author=stuid)
-    trans_rep = transaction.objects.filter(accepter=stuid)
+    transau = transaction.objects.filter(author=stuid)
+    transac = transaction.objects.filter(author=stuid)
     context = {
-        "student" : student,
-        "trans-au" : trans_don,
-        "trans-ac" : trans_rep,
+        "student" : student, 
+        "transau" : transau,
+        "transac" : transac,
     }
     return render(request, "accounts/details.html", context)
 
 
 def Processing_page(request):
     stuid = request.user.student_id
-    # print(stuid)
     trans_au = transaction.objects.filter(status=0,author=stuid)
     trans_ac = transaction.objects.filter(status=0,accepter=stuid)
 

@@ -7,9 +7,9 @@
     {{queue_form.author}}
     <label>Content</label>
     {{queue_form.content}}
-    <label>details</label>  
+    <label>Details</label>  
     {{queue_form.details}}
-    <label>method</label>  
+    <label>Method</label>  
     {{queue_form.method}}
     <label>tags (seperate by ";")</label>
     {{queue_form.tags}}
@@ -26,12 +26,11 @@
     form_fields[2].value='{{user.student_id}}';
     form_fields[3].placeholder='content';
     form_fields[3].value='banana';
-    form_fields[6].placeholder='tags';
-    form_fields[6].value='none'
+    form_fields[4].placeholder='tags';
+    form_fields[4].value='none';
 
-    $("#id_method_0").prop("checked", true);
-
-    for (var field in form_fields){	
+    for (var field in form_fields){
+        console.log(form_fields[field])
         form_fields[field].className += ' form-control'
     }
 </script>
@@ -50,6 +49,13 @@
     .q-form label{
         display: none;
         text-align: center;
+        font-family: 'DM Mono', monospace;
+        margin-top: 5px;
+        margin-bottom : 5px;
+    }
+
+    input .submit-button{
+        width: 30px;
     }
 
     .q-form textarea {
@@ -63,14 +69,25 @@
         display: block;
     }
 
+    .submit-button{
+        width: auto;
+    }
+
     .q-form textarea .active{
         display: block;
     }
 
-    #id_method {
-        list-style: none;
-        display: inline;
+    .q-form select {
+        display: none;
+        margin: 0 auto;
     }
+
+    .q-form select .active{
+        display: block;
+    }
+
+    
+
 
     @media (max-width: 600px) {
         .q-form textarea {

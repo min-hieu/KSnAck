@@ -23,6 +23,7 @@ def queue_view(request,proid=None):
     if request.POST.get('title'):
         form = foodQueueForm(request.POST)
         if form.is_valid():
+            print(form.cleaned_data)
             form.save()
             messages.success(request, "added")
             return redirect('queue')

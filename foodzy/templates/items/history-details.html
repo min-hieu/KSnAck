@@ -1,24 +1,24 @@
 
-<p id="history-header">donation history</p>
+<p id="history-header">offer history</p>
 <div id="history-container">
-    {% if transdon|length > 0 %}
-        {% for tran in transdon %}
+    {% if transau|length > 0 %}
+        {% for tran in transac %}
             {% include 'items/preview.html' %}
         {% endfor %}
     {% else %}
-        <h1 id='content-text'>404 donation not found</h1>
+        <h1 id='content-text'>404 request not found</h1>
     {% endif  %}
     
 </div>
 
-<p  id="history-header">recieving history</p>
+<p  id="history-header">request history</p>
 <div id="history-container">    
     {% if transrep|length > 0 %}
         {% for tran in transrep %}
             {% include 'items/preview.html' %}
         {% endfor %}
     {% else %}
-        <h1 id='content-text'>No data!</h1>
+        <h1 id='content-text'>404 offer not found</h1>
     {% endif %}
 </div>
 
