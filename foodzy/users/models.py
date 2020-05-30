@@ -38,6 +38,7 @@ class Student(AbstractBaseUser):
     rank                    = models.CharField(max_length=100, default='Layman')
     happiness               = models.IntegerField(default=0)
     medals                  = models.TextField(default='')
+    bio                     = models.TextField(default='')
 
     date_joined             = models.DateTimeField(verbose_name='date joined', auto_now_add=True)
     last_login              = models.DateTimeField(verbose_name='last login', auto_now=True)

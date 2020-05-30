@@ -3,7 +3,6 @@
     
     <label>Title</label>
     {{queue_form.title}}
-    <label>Author</label>
     {{queue_form.author}}
     <label>Content</label>
     {{queue_form.content}}
@@ -31,7 +30,9 @@
 
     for (var field in form_fields){
         console.log(form_fields[field])
-        form_fields[field].className += ' form-control'
+        if (field != 2) {
+            form_fields[field].className += ' form-control'
+        }
     }
 </script>
 
@@ -60,9 +61,11 @@
 
     .q-form textarea {
         display: none;
-        resize: none;
-        max-width: 300px;
-        max-height: 90px;
+        resize: vertical;
+        /* max-width: 300px; */
+        width: 100%;
+        min-height: 90px;
+        height: 90px;
     }
 
     .q-form .active{
@@ -75,6 +78,7 @@
 
     .q-form textarea .active{
         display: block;
+        width: 100px;
     }
 
     .q-form select {
@@ -86,14 +90,12 @@
         display: block;
     }
 
-    
-
 
     @media (max-width: 600px) {
-        .q-form textarea {
+        /* .q-form textarea {
             max-width: 300px;
             max-height: 90px;
-        }
+        } */
     }
 
 </style>

@@ -16,7 +16,7 @@
     {% if trans|length > 0 %}
     <p id="history-header">Help requests</p>
     <div id="q-container">
-        {% for tran in trans %}
+        {% for tran in trans reversed %}
         {% include 'items/q-preview.html' %}
         {% endfor %}    
     </div>
@@ -31,7 +31,7 @@
 <script type="text/javascript">
     $(document).ready(function(){
         $('.button-add-q').click(function(){
-            $('.q-form input').toggleClass('active');
+            $('.q-form .form-control').toggleClass('active');
             $('.q-form label').toggleClass('active');
             $('.q-form textarea').toggleClass('active');
             $('.q-form select').toggleClass('active');
@@ -45,7 +45,14 @@
 
     .success-m {
         text-align: center;
+        margin: 0 auto;
         background-color: #84ff74;
+        position:fixed;
+        top: 150px;
+        left:auto;
+        right:auto;
+        color:white;
+        display: block;
     }
 
     #q-container {
@@ -67,6 +74,12 @@
         border-spacing: 0px 0;
         font-family: 'Quicksand', sans-serif;
         min-width: 100px;
+    }
+
+    .button-add-q {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
     }
 
 

@@ -2,8 +2,8 @@
     <a href="{% url 'item' tran.id %}">{{tran.title}}</a>
     <table>
         <tr>
-            <td>author</td>
-            <td>{{tran.author}}</td>
+            <td>accepter</td>
+            <td>{{tran.accepter}}</td>
         </tr>
         {% if tran.give|length > 0 %}
         <tr>
@@ -18,10 +18,11 @@
         </tr>
         {% else %}{% endif %}
         <tr>
-            <td>status</td>
-            <td>{{ tran.status}}</td>
+            <td>content</td>
+            <td>{{ tran.content }}</td>
         </tr>
     </table>
+    {% if tran.author == user.student_id %}
     <div class='p-pr-button'>
         <form action="{% url 'pro_ac' tran.pk %}" method=POST>
             {% csrf_token %}
@@ -29,6 +30,7 @@
             <button class='p-button' type="submit">Accept</button>
         </form>
     </div>
+    {%else%}{%endif%}
 </div>
 
 <style>

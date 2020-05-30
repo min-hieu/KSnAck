@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, logout, authenticate
 
-from users.forms import CreateStudentForm
+from users.forms import CreateStudentForm,AddBio
 from users.models import Student
 from items.models import transaction
 from django.contrib import messages
@@ -50,6 +50,9 @@ def logoutPage(request):
 
 
 def dynamicProfileLookup(request, stuid):
+        
+    form = AddBio(request.POST)
+
     student = Student.objects.get(student_id=stuid)
     transau = transaction.objects.filter(author=stuid)
     transac = transaction.objects.filter(author=stuid)
@@ -57,7 +60,16 @@ def dynamicProfileLookup(request, stuid):
         "student" : student, 
         "transau" : transau,
         "transac" : transac,
+        "form": form,
     }
+
+    if request.POST and form.is_valid():
+        request.user.bio = form.cleaned_data['bio']
+        request.user.save()
+    elif request.POST:
+        request.user.bio = ""
+        request.user.save()
+
     return render(request, "accounts/details.html", context)
 
 
@@ -77,16 +89,18 @@ def Processing_page(request,proid=None):
 
         tran_ac = transaction.objects.filter(pk=proid)[0]
         tran_ac.status = 1
-        tran_ac.accepter = current_user.student_id
         tran_ac.save()
 
-        author = Student.objects.filter(student_id = tran_ac.author)[0]
-        accepter = Student.objects.filter(student_id = tran_ac.accepter)[0]
+        print("ok1")
+        print(tran_ac.author, tran_ac.accepter)
 
         if tran_ac.author != tran_ac.accepter:
+            print("ok")
+            author = Student.objects.filter(student_id = tran_ac.author)[0]
             author.happiness += 20
             author.save()
 
+            accepter = Student.objects.filter(student_id = tran_ac.accepter)[0]
             accepter.happiness += 20
             accepter.save()
 

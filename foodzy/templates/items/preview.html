@@ -2,17 +2,49 @@
     <a href="{% url 'item' tran.id %}">{{tran.title}}</a>
     <table>
         <tr>
-            <td>Donor:</td>
+            <td>Author:</td>
             <td style="text-align: center;">{{tran.donor}}</td>
         </tr>
         <tr>
-            <td>Recipient:</td>
+            <td>Accepter:</td>
             <td style="text-align: center;">{{tran.recipient}}</td>
         </tr>
         <tr>
-            <td>details</td>
+            <td>status</td>
             <td style="text-align: center;">{{tran.get_status_display}}</td>
         </tr>
     </table>
     <p>{{tran.date_create}}</p>
 </div>
+
+<style>
+        .tran-preview {
+            border-color: #ff2323;
+            border-style: solid;
+            border-radius: 15px;
+            margin: 20px auto 20px auto;
+            min-width: 170px;
+            text-align: center ;
+            padding: 10px 0 10px 0;
+        }
+
+        .tran-preview a {
+            text-align: center;
+            margin: 0px auto 0px auto;
+            font-size: 20px;
+        }
+
+        .tran-preview p {
+            font-family: 'Quicksand', sans-serif;
+            text-align: center;
+            margin: 10px auto 0px auto;
+            font-size: 10px;
+        }
+
+        .tran-preview table {
+            border-collapse: separate;
+            border-spacing: 10px 0;
+            font-family: 'Quicksand', sans-serif;
+            margin: 0 auto; 
+        }
+</style>

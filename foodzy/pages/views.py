@@ -13,7 +13,7 @@ def home_view(request):
 
     return render(request, 'home.html', context)
 
-def queue_view(request,proid=None):
+def queue_view(request,proid=None,method=None):
     transactions = transaction.objects.filter(status=3)
 
     context = {
@@ -25,17 +25,22 @@ def queue_view(request,proid=None):
         if form.is_valid() and form.cleaned_data['author']:
             form.cleaned_data['author']
             form.save()
-            messages.success(request, "added")
+            messages.success(request, " successfully added ")
             return redirect('queue')
         else:
             context['queue_form'] = form
-    elif request.POST and proid:
-        current_user = request.user
-        tran_ac = transaction.objects.filter(pk=proid)[0]
-        tran_ac.status = 0
-        tran_ac.accepter = current_user.student_id
-        tran_ac.save()
-        
+    elif request.POST and method:
+        if method == 'apply':
+            current_user = request.user
+            tran_ac = transaction.objects.filter(pk=proid)[0]
+            tran_ac.status = 0
+            tran_ac.accepter = current_user.student_id
+            tran_ac.save()
+        if method == 'remove':
+            current_user = request.user
+            query = transaction.objects.filter(pk=proid)[0]
+            query.delete()
+
 
         return redirect('queue')
 

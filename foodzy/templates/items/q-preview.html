@@ -1,26 +1,39 @@
+
 <div class='q-preview'>
+    {% if tran.author == user.student_id %}
+    <div class='q-pr-remove'>
+        <form action="{% url 'queue_re' 'remove' tran.pk %}" method=POST>
+            {% csrf_token %}
+            <button class='cancel-button' type="submit"><i class="fas fa-times-circle"></i></button>
+        </form>
+    </div>
+    {%else%}{%endif%}
+    <div class='q-pr-content'>
     <a href="{% url 'item' tran.pk %}">{{tran.title}}</a>
     <table>
         <tr>
-            <td>Author:</td>
-            <td>{{tran.author}}</td>
+            <td>author </td>
+            <td style="padding-left:5px;">{{tran.author}}</td>
         </tr>
         <tr>
             <td>{% if tran.method == 0 %}want{% else %}have{% endif %}</td>
-            <td>{{tran.content}}</td>
+            <td style="padding-left:5px;">{{tran.content}}</td>
         </tr>
         {% if tran.tags|length > 0 %}
         <tr>
             <td>tag</td>
-            <td>{{tran.tag}}</td>
+            <td style="padding-left:5px;">{{tran.tag}}</td>
         </tr>
         {%else%}{%endif%}
     </table>
+    {% if tran.author != user.student_id %}
     <div class='q-pr-button'>
-        <form action="{% url 'queue_ac' tran.pk %}" method=POST>
+        <form action="{% url 'queue_re' 'apply' tran.pk %}" method=POST>
             {% csrf_token %}
             <button class='q-button' type="submit">Apply</button>
         </form>
+    </div>
+    {%else%}{%endif%}
     </div>
 </div>
 
@@ -33,6 +46,12 @@
     padding: 15px 0px;
     min-width: 150px;
     text-align: center ;
+    padding-top:auto;
+    }
+
+    .q-pr-content {
+        position: relative;
+        background-color: transparent;
     }
 
     .q-preview a{
@@ -66,6 +85,24 @@
     .q-button:hover {
     background-color: aliceblue;
     color:#ff2323;
+    }
+
+    .q-pr-remove {
+        position:relative;
+        width: 0; height: 0
+    }
+
+    .cancel-button {
+        background-color: transparent;
+        position: relative;
+        color:red;
+        top: -18px;
+        left: 103px;
+    }
+
+    .cancel-button:hover {
+        background-color: transparent;
+        color:#801717;
     }
 
 

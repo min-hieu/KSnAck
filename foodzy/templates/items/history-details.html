@@ -13,8 +13,8 @@
 
 <p  id="history-header">request history</p>
 <div id="history-container">    
-    {% if transrep|length > 0 %}
-        {% for tran in transrep %}
+    {% if transac|length > 0 %}
+        {% for tran in transac %}
             {% include 'items/preview.html' %}
         {% endfor %}
     {% else %}

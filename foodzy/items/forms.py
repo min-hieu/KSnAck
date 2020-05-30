@@ -10,14 +10,6 @@ class HorizontalRadioRenderer(RadioSelect):
 
 class foodQueueForm(ModelForm):
 
-    # CHOICES=[(0,'request'),
-    #          (1,'offer')]
-
-    # method = ChoiceField(
-    #     choices=CHOICES,
-    #     widget=RadioSelect(),
-    #     )
-
     class Meta:       
         model = transaction
         fields = [
