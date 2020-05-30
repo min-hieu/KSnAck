@@ -22,8 +22,8 @@ def queue_view(request,proid=None):
 
     if request.POST.get('title'):
         form = foodQueueForm(request.POST)
-        if form.is_valid():
-            print(form.cleaned_data)
+        if form.is_valid() and form.cleaned_data['author']:
+            form.cleaned_data['author']
             form.save()
             messages.success(request, "added")
             return redirect('queue')
@@ -33,8 +33,9 @@ def queue_view(request,proid=None):
         current_user = request.user
         tran_ac = transaction.objects.filter(pk=proid)[0]
         tran_ac.status = 0
-        tran_ac.donor = current_user.student_id
+        tran_ac.accepter = current_user.student_id
         tran_ac.save()
+        
 
         return redirect('queue')
 

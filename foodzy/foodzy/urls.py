@@ -37,7 +37,8 @@ urlpatterns = [
     path('queue/', queue_view, name='queue'),
     path('queue/accept/<slug:proid>', queue_view, name='queue_ac'),
     path('items/<slug:proid>/', dynamicItemView, name='item'),
-    path('processing', Processing_page, name='processing')
+    path('processing', Processing_page, name='processing'),
+    path('processing/ac/<slug:proid>', Processing_page, name='pro_ac'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

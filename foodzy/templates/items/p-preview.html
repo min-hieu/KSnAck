@@ -23,7 +23,7 @@
         </tr>
     </table>
     <div class='p-pr-button'>
-        <form action="{% url 'queue_ac' tran.pk %}" method=POST>
+        <form action="{% url 'pro_ac' tran.pk %}" method=POST>
             {% csrf_token %}
 
             <button class='p-button' type="submit">Accept</button>
