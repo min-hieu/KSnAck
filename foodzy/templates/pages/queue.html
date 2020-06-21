@@ -15,6 +15,15 @@
 
     {% if trans|length > 0 %}
     <p id="history-header">Help requests</p>
+    <form action="" method="get">
+     <input list="tags" type="text" name="q" value="{{ q }}">
+     <datalist id="tags">
+     {% for tag in tags %}
+     <option value={{tag}}>
+     {% endfor %}
+     </datalist>
+     <input type="submit" value="search">
+    </form>
     <div id="q-container">
         {% for tran in trans reversed %}
         {% include 'items/q-preview.html' %}
