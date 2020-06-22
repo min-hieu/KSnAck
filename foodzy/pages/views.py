@@ -19,15 +19,23 @@ def queue_view(request,proid=None,method=None):
     tags = Tag.objects.all()
 
     q = request.GET.get('q', '')
+    typ = request.GET.get('typ', '')
     if q:
-        q = q.split()
-        transactions = transactions.filter(tags__name__in=q).distinct()
+        if typ:
+             q = q.split()
+             transactions = transactions.filter(tags__name__in=q).filter(method=int(typ)).distinct()
+        else:
+            q = q.split()
+            transactions = transactions.filter(tags__name__in=q).distinct()
     else:
-        transactions = transactions.all()
+        if typ: transactions = transactions.filter(method=int(typ))
+        else: transactions = transactions.all()
+    q = ''
     context = {
             'trans' : transactions,
             'q': q,
             'tags': tags,
+            'typ': typ
             }    
 
     if request.POST.get('title'):
