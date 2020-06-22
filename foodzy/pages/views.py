@@ -3,6 +3,7 @@ from django.contrib import messages
 from items.models import transaction
 from items.forms import foodQueueForm
 from users.models import Student
+from taggit.models import Tag
 
 
 def home_view(request):
@@ -15,10 +16,27 @@ def home_view(request):
 
 def queue_view(request,proid=None,method=None):
     transactions = transaction.objects.filter(status=3)
+    tags = Tag.objects.all()
 
+    q = request.GET.get('q', '')
+    typ = request.GET.get('typ', '')
+    if q:
+        if typ:
+             q = q.split()
+             transactions = transactions.filter(tags__name__in=q).filter(method=int(typ)).distinct()
+        else:
+            q = q.split()
+            transactions = transactions.filter(tags__name__in=q).distinct()
+    else:
+        if typ: transactions = transactions.filter(method=int(typ))
+        else: transactions = transactions.all()
+    q = ''
     context = {
-        'trans' : transactions,
-    }
+            'trans' : transactions,
+            'q': q,
+            'tags': tags,
+            'typ': typ
+            }    
 
     if request.POST.get('title'):
         form = foodQueueForm(request.POST)
@@ -52,4 +70,3 @@ def queue_view(request,proid=None,method=None):
 
     
     return render(request, 'pages/queue.html', context)
-    
