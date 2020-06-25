@@ -55,7 +55,7 @@ def dynamicProfileLookup(request, stuid):
 
     student = Student.objects.get(student_id=stuid)
     transau = transaction.objects.filter(author=stuid)
-    transac = transaction.objects.filter(author=stuid)
+    transac = transaction.objects.filter(accepter=stuid)
     context = {
         "student" : student, 
         "transau" : transau,
