@@ -15,18 +15,18 @@
 
     {% if trans|length > 0 %}
     <p id="history-header">Help requests</p>
-    <form id="sch" action="" method="get">
-     <input list="tags" type="text" name="q" value="{{ q }}">
-     <datalist id="tags">
-     {% for tag in tags %}
-     <option value={{tag}}>
-     {% endfor %}
-     </datalist>
-     <input type="radio" id="offer" name="typ" value="1">
-     <label for="offer">Offer</label>
-     <input type="radio" id="request" name="typ" value="0">
-     <label for="request">Request</label>
-     <input id="but" type="submit" value="search">
+    <form action="" method="get">
+        <input list="tags" type="text" name="q" value="{{ q }}" id='input-space'>
+        <datalist id="tags">
+            {% for tag in tags %}
+                <option value={{tag}}>
+            {% endfor %}
+        </datalist>
+        <input type="radio" id="offer" name="typ" value="1">
+        <label for="offer">Offer</label>
+        <input type="radio" id="request" name="typ" value="0">
+        <label for="request">Request</label>
+        <input type="submit" value="search" class="submit-button  button-add-q">
     </form>
     <div id="q-container">
         {% for tran in trans reversed %}
@@ -113,6 +113,15 @@
         display: block;
         margin-right: auto;
         margin-left: auto;
+    }
+
+    form {
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    #input-space {
+        width: 100px;
     }
 
 

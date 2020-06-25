@@ -41,7 +41,14 @@
             </tr>
             <tr>
                 <td> tags </td>
-                <td>{{transaction.tags.names}}</td>
+                <td>{% for tag in transaction.tags.all %}
+                        {% if forloop.last %}
+                            <p style="display: inline;margin: 0;">{{ tag.name }}</p>
+                        {% else %}
+                            <p style="display: inline;margin: 0;">{{ tag.name }};</p>
+                        {%endif%}
+                    {% endfor %}
+                </td>
             </tr>
         </tbody>
         </table>
