@@ -15,7 +15,7 @@
 
     {% if trans|length > 0 %}
     <p id="history-header">Help requests</p>
-    <form action="" method="get">
+    <form id="sch" action="" method="get">
      <input list="tags" type="text" name="q" value="{{ q }}">
      <datalist id="tags">
      {% for tag in tags %}
@@ -26,7 +26,7 @@
      <label for="offer">Offer</label>
      <input type="radio" id="request" name="typ" value="0">
      <label for="request">Request</label>
-     <input type="submit" value="search">
+     <input id="but" type="submit" value="search">
     </form>
     <div id="q-container">
         {% for tran in trans reversed %}
@@ -66,6 +66,26 @@
         right:auto;
         color:white;
         display: block;
+    }
+    
+    #sch {
+        font-family: 'Quicksand', sans-serif;
+    }
+    
+    #but {
+        font-family: 'Quicksand', sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        background-color: red;
+        color: white;
+        
+        padding: 7px 21px;
+        margin-top: 10px;
+        background-color: #ff2323;
+        border:none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease 0s;
     }
 
     #q-container {

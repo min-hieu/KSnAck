@@ -2,7 +2,7 @@
 <p id="history-header">offer history</p>
 <div id="history-container">
     {% if transau|length > 0 %}
-        {% for tran in transac %}
+        {% for tran in transau %}
             {% include 'items/preview.html' %}
         {% endfor %}
     {% else %}
