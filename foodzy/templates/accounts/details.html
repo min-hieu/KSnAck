@@ -21,7 +21,12 @@
             </tr>
         </table>
         {%if student.bio|length != 0%}
-        <span><p>bio</p><i class="fas fa-times-circle"></i></span>
+        <form method="POST" action="" class='bio-del-form'>
+            {% csrf_token %}
+            <span><p>bio</p>
+                <button style="padding:0;"><i class="fas fa-times-circle" type=></i></button>
+            </span>
+        </form>
         <p id='bio'>{{ student.bio }}</p>
         {%elif student.student_id == user.student_id%}
         <a class='bio-add'>add your bio</a>

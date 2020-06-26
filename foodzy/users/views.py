@@ -66,6 +66,7 @@ def dynamicProfileLookup(request, stuid):
     if request.POST and form.is_valid():
         request.user.bio = form.cleaned_data['bio']
         request.user.save()
+        redirect('profiles/'+stuid)
     elif request.POST:
         request.user.bio = ""
         request.user.save()
