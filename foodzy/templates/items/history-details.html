@@ -1,24 +1,24 @@
 
-<p id="history-header">offer history</p>
+<p id="history-header">request history</p>
 <div id="history-container">
     {% if transau|length > 0 %}
         {% for tran in transau %}
             {% include 'items/preview.html' %}
         {% endfor %}
     {% else %}
-        <h1 id='content-text'>404 request not found</h1>
+        <h1 id='content-text'>404 no history found :(</h1>
     {% endif  %}
     
 </div>
 
-<p  id="history-header">request history</p>
+<p  id="history-header">accept history</p>
 <div id="history-container">    
     {% if transac|length > 0 %}
         {% for tran in transac %}
             {% include 'items/preview.html' %}
         {% endfor %}
     {% else %}
-        <h1 id='content-text'>404 offer not found</h1>
+        <h1 id='content-text'>404 not history found :(</h1>
     {% endif %}
 </div>
 
